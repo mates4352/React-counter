@@ -4,8 +4,8 @@ import {useState} from "react";
 
 export const Counter = () => {
    let [number, setNumber] = useState<number>(0)
-   const disabledOne = number < 5 ? false : true;
-   const disabledTwo = number > 0 ? false : true;
+   const disabledOne = number >= 5;
+   const disabledTwo = number <= 0;
 
    return (
        <div className={s.counter}>

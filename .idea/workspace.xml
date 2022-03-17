@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="107ef8a1-3e4c-410f-8d13-5bee2e8e9c07" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/button/Button.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/button/Button.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/counter/Counter.module.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/counter/Counter.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/counter/Counter.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/counter/Counter.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +14,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -58,5 +53,20 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fix logic in component counter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fix logic in component counter" />
   </component>
 </project>
