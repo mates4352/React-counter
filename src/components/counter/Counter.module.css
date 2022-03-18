@@ -1,9 +1,10 @@
 .counter {
-   max-width: 300px;
+   --color_counter: aqua;
+   max-width: 400px;
    width: 100%;
-   padding: 20px;
+   padding: 30px;
 
-   border: 1px solid aqua;
+   border: 1px solid var(--color_counter);
    border-radius: 12px;
 }
 
@@ -16,7 +17,7 @@
    text-align: center;
    color: tomato;
 
-   background-color: aqua;
+   border: 1px solid var(--color_counter);
    border-radius: 12px;
 }
 
@@ -26,6 +27,6 @@
    column-gap: 24px;
    padding: 24px;
 
-   border: 1px solid aqua;
+   border: 1px solid var(--color_counter);
    border-radius: 12px;
 }

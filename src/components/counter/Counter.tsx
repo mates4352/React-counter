@@ -13,6 +13,7 @@ export const Counter = () => {
           <div className={s.counter_wrap}>
              <Button text={'inc'} disabled={disabledOne} onClick={ () => {setNumber(++number) } }/>
              <Button text={'reset'} disabled={disabledTwo} onClick={ () => {setNumber(0) }}/>
+             <Button text={'set'} disabled={disabledTwo} onClick={ () => {setNumber(0) }}/>
           </div>
        </div>
    );
