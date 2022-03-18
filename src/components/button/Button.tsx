@@ -2,7 +2,7 @@ import s from './Button.module.css'
 
 type buttonType = {
    text: string
-   disabled: boolean
+   disabled?: boolean
    onClick: () => void
 }
 

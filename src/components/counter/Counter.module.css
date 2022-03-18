@@ -15,10 +15,16 @@
 
    font-size: 48px;
    text-align: center;
-   color: tomato;
+   color: var(--color_counter);
 
    border: 1px solid var(--color_counter);
    border-radius: 12px;
+   transition: font-size 300ms linear, color 300ms linear;
+}
+
+.counter_number__active {
+   color: tomato;
+   font-size: 56px;
 }
 
 .counter_wrap {
