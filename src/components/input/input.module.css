@@ -1,0 +1,37 @@
+.input_content {
+}
+
+.input_wrap {
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+}
+
+.label {
+   color: var(--color_counter);
+   font-size: 28px;
+   font-size: 700;
+}
+
+.input {
+   display: inline-flex;
+   align-items: center;
+   justify-content: center;
+   max-width: 100px;
+   height: 40px;
+   padding: 0 5px;
+
+   font-size: 22px;
+   font-weight: 700;
+   text-align: center;
+
+   border-radius: 12px;
+   border: 2px solid var(--color_counter);
+
+   background-color: var(--color_counter);
+}
+
+.input_error {
+   background-color: tomato;
+   color: var(--color_counter);
+}
