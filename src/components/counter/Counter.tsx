@@ -20,7 +20,13 @@ export const Counter = () => {
        <div className={s.counter}>
           <div className={s.counter_wrap}>
              {isShow && <h1 className={`${s.counter_number} ${classNumberActive}`}>{number}</h1>}
-             {!isShow && <CounterOption maxNumber={maxNumber} setMaxNumber={setMaxNumber} minNumber={minNumber} setMinNumber={setMinNumber}/>}
+             {!isShow &&
+                <CounterOption
+                   setNumber={setNumber}
+                   maxNumber={maxNumber}
+                   setMaxNumber={setMaxNumber}
+                   minNumber={minNumber}
+                   setMinNumber={setMinNumber}/>}
           </div>
 
           <div className={s.counter_buttons}>
