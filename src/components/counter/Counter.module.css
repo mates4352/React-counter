@@ -30,6 +30,7 @@
 .counter_wrap {
    display: flex;
    align-items: center;
+   justify-content: center;
    column-gap: 24px;
    padding: 24px;
 
