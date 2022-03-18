@@ -1,40 +1,34 @@
 import s from './Counter.module.css'
 import {Button} from "../button/Button";
 import {useState} from "react";
+import {CounterOption} from "../counterOption/CounterOpction";
 
 export const Counter = () => {
-   let [number, setNumber] = useState<number>(0)
-   const [isShow, serIsShow] = useState<boolean>(true);
+   const [maxNumber, setMaxNumber] = useState<number>(5)
+   const [minNumber, setMinNumber] = useState<number>(0)
+   let [number, setNumber] = useState<number>(minNumber)
+   const [isShow, setIsShow] = useState<boolean>(true);
 
-   const showOption = () => serIsShow(!isShow);
+   const showOption = () => setIsShow(!isShow);
    const addNumber = () => setNumber(++number);
-   const resetCounterNumber = () => setNumber(0);
+   const resetCounterNumber = () => setNumber(minNumber);
 
-   const disabled = number >= 5;
-   const classNumberActive = number === 5 ? s.counter_number__active : '';
+   const disabled = number >= maxNumber;
+   const classNumberActive = number === maxNumber ? s.counter_number__active : '';
 
    return (
        <div className={s.counter}>
           <div className={s.counter_wrap}>
              {isShow && <h1 className={`${s.counter_number} ${classNumberActive}`}>{number}</h1>}
+             {!isShow && <CounterOption maxNumber={maxNumber} setMaxNumber={setMaxNumber} minNumber={minNumber} setMinNumber={setMinNumber}/>}
           </div>
 
           <div className={s.counter_buttons}>
-             <Button text={'inc'} isShow={!isShow} disabled={disabled} onClick={addNumber}/>
-             <Button text={'reset'} isShow={!isShow} disabled={!disabled} onClick={resetCounterNumber}/>
+             {isShow && <Button text={'inc'} disabled={disabled} onClick={addNumber}/>}
+             {isShow && <Button text={'reset'} disabled={!disabled} onClick={resetCounterNumber}/>}
+
              <Button text={'set'} onClick={showOption}/>
           </div>
        </div>
    );
-}
-
-
-
-const Input = () => {
-   return (
-       <div className={s.input}>
-
-       </div>
-
-   )
 }

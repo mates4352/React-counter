@@ -6,13 +6,10 @@ type defaultButtonType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElemen
 type buttonType = defaultButtonType & {
    text: string
    onClick: () => void
-   isShow?: boolean
 }
 
 
-export const Button: React.FC<buttonType> = ({text, isShow, ...restProps}) => {
-   if (isShow) return null
-
+export const Button: React.FC<buttonType> = ({text, ...restProps}) => {
    return (
        <button
            className={s.button} type='button' {...restProps}>
