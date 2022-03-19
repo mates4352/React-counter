@@ -1,5 +1,5 @@
 import s from './CounterOption.module.css';
-import React, {ChangeEvent, Dispatch, SetStateAction} from "react";
+import React, {ChangeEvent, Dispatch, SetStateAction, useEffect} from "react";
 import {Input} from "../input/Input";
 
 type CounterOptionType = {
@@ -19,6 +19,12 @@ export const CounterOption: React.FC<CounterOptionType> = ({maxNumber, setMaxNum
       setNumber(+e.currentTarget.value)
    }
    const error = () => minNumber < 0 || maxNumber <= minNumber
+
+   useEffect(()=> {
+      localStorage.setItem('counterMaxValue', JSON.stringify(maxNumber))
+      localStorage.setItem('counterMinValue', JSON.stringify(minNumber))
+      localStorage.setItem('counterValue', JSON.stringify(minNumber))
+   }, [maxNumber, minNumber])
 
    return (
        <div className={s.CounterOption}>

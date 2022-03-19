@@ -1,6 +1,6 @@
 import s from './Counter.module.css'
 import {Button} from "../button/Button";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import {CounterOption} from "../counterOption/CounterOpction";
 
 export const Counter = () => {
@@ -9,11 +9,28 @@ export const Counter = () => {
    let [number, setNumber] = useState<number>(minNumber)
    const [isShow, setIsShow] = useState<boolean>(true);
 
-   const showOption = () => setIsShow(!isShow);
-   const addNumber = () => setNumber(++number);
-   const resetCounterNumber = () => setNumber(minNumber);
+   const showOption = () => setIsShow(!isShow)
+   const addNumber = () => setNumber(++number)
+   const resetCounterNumber = () => {
+      setNumber(minNumber)
+      localStorage.setItem("counterValue", JSON.stringify(minNumber))
+   }
 
-   const disabled = number >= maxNumber;
+   useEffect(() => {
+      const value = localStorage.getItem("counterValue");
+      const valueMax = localStorage.getItem("counterMaxValue");
+      const valueMin = localStorage.getItem("counterMinValue");
+      value && setNumber(JSON.parse(value))
+      valueMax && setMaxNumber(JSON.parse(valueMax))
+      valueMin && setMinNumber(JSON.parse(valueMin))
+   }, [])
+
+   useEffect(() => {
+      localStorage.setItem("counterValue", JSON.stringify(number))
+   }, [number])
+
+   const disabled_1 = number >= maxNumber;
+   const disabled_2 = number === minNumber;
    const classNumberActive = number === maxNumber ? s.counter_number__active : '';
 
    return (
@@ -30,8 +47,8 @@ export const Counter = () => {
           </div>
 
           <div className={s.counter_buttons}>
-             {isShow && <Button text={'inc'} disabled={disabled} onClick={addNumber}/>}
-             {isShow && <Button text={'reset'} disabled={!disabled} onClick={resetCounterNumber}/>}
+             {isShow && <Button text={'inc'} disabled={disabled_1} onClick={addNumber}/>}
+             {isShow && <Button text={'reset'} disabled={disabled_2} onClick={resetCounterNumber}/>}
 
              <Button text={'set'} onClick={showOption}/>
           </div>
