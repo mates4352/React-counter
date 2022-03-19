@@ -29,8 +29,8 @@ export const Counter = () => {
       localStorage.setItem("counterValue", JSON.stringify(number))
    }, [number])
 
-   const disabled_1 = number >= maxNumber;
-   const disabled_2 = number === minNumber;
+   const disabledInc = number >= maxNumber;
+   const disabledReset = number === minNumber;
    const classNumberActive = number === maxNumber ? s.counter_number__active : '';
 
    return (
@@ -47,8 +47,8 @@ export const Counter = () => {
           </div>
 
           <div className={s.counter_buttons}>
-             {isShow && <Button text={'inc'} disabled={disabled_1} onClick={addNumber}/>}
-             {isShow && <Button text={'reset'} disabled={disabled_2} onClick={resetCounterNumber}/>}
+             {isShow && <Button text={'inc'} disabled={disabledInc} onClick={addNumber}/>}
+             {isShow && <Button text={'reset'} disabled={disabledReset} onClick={resetCounterNumber}/>}
 
              <Button text={'set'} onClick={showOption}/>
           </div>

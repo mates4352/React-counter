@@ -6,18 +6,15 @@ type defaultInputType = DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>,
 
 type inputType = defaultInputType & {
    textLabel: string;
-   error: boolean;
 }
 
-export const Input:React.FC<inputType> = ({textLabel, error, ...restProps}) => {
-   const classNameInputError = error ? s.input_error : '';
-
+export const Input:React.FC<inputType> = ({textLabel, ...restProps}) => {
    return (
        <div className={s.input_content}>
           <label className={s.input_wrap}>
              <span className={s.label}>{textLabel}</span>
 
-             <input className={`${s.input} ${classNameInputError}`} type="number" {...restProps}/>
+             <input className={s.input} type="number" {...restProps}/>
           </label>
        </div>
    )

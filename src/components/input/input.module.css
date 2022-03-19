@@ -30,8 +30,3 @@
 
    background-color: var(--color_counter);
 }
-
-.input_error {
-   background-color: tomato;
-   color: var(--color_counter);
-}

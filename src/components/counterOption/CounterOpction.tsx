@@ -11,6 +11,16 @@ type CounterOptionType = {
 }
 
 export const CounterOption: React.FC<CounterOptionType> = ({maxNumber, setMaxNumber, minNumber, setMinNumber, setNumber}) => {
+   const errorMaxInput = maxNumber < minNumber
+   const errorMinInput = minNumber < 0 || minNumber > maxNumber;
+
+   if(errorMaxInput) {
+      setMaxNumber(5)
+   }
+   if(errorMinInput) {
+      setMinNumber(0)
+   }
+
    const editMaxNumber = (e: ChangeEvent<HTMLInputElement>) => {
       setMaxNumber(+e.currentTarget.value)
    }
@@ -18,7 +28,6 @@ export const CounterOption: React.FC<CounterOptionType> = ({maxNumber, setMaxNum
       setMinNumber(+e.currentTarget.value)
       setNumber(+e.currentTarget.value)
    }
-   const error = () => minNumber < 0 || maxNumber <= minNumber
 
    useEffect(()=> {
       localStorage.setItem('counterMaxValue', JSON.stringify(maxNumber))
@@ -28,8 +37,8 @@ export const CounterOption: React.FC<CounterOptionType> = ({maxNumber, setMaxNum
 
    return (
        <div className={s.CounterOption}>
-          <Input textLabel={'Max Number'} value={maxNumber} onChange={editMaxNumber} error={error()}/>
-          <Input textLabel={'Min Number'} value={minNumber} onChange={editMinNumber} error={error()}/>
+          <Input textLabel={'Max Number'} value={maxNumber} onChange={editMaxNumber}/>
+          <Input textLabel={'Min Number'} value={minNumber} onChange={editMinNumber}/>
        </div>
    )
 }
