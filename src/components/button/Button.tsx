@@ -4,16 +4,10 @@ import {ButtonHTMLAttributes, DetailedHTMLProps} from "react";
 type defaultButtonType = DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>
 
 type buttonType = defaultButtonType & {
-   text: string
-   onClick: () => void
 }
 
-
-export const Button: React.FC<buttonType> = ({text, ...restProps}) => {
+export const Button: React.FC<buttonType> = ({...restProps}) => {
    return (
-       <button
-           className={s.button} type='button' {...restProps}>
-          {text}
-       </button>
+       <button className={s.button} type='button' {...restProps}/>
    );
 }

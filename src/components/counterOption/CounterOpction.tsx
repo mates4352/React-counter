@@ -10,14 +10,16 @@ type CounterOptionType = {
    setMinNumber: Dispatch<SetStateAction<number>>
 }
 
-export const CounterOption: React.FC<CounterOptionType> = ({maxNumber, setMaxNumber, minNumber, setMinNumber, setNumber}) => {
+export const CounterOption: React.FC<CounterOptionType> = (
+    {maxNumber, setMaxNumber, minNumber, setMinNumber, setNumber}
+) => {
    const errorMaxInput = maxNumber < minNumber
    const errorMinInput = minNumber < 0 || minNumber > maxNumber;
 
-   if(errorMaxInput) {
+   if (errorMaxInput) {
       setMaxNumber(5)
    }
-   if(errorMinInput) {
+   if (errorMinInput) {
       setMinNumber(0)
    }
 
@@ -29,7 +31,7 @@ export const CounterOption: React.FC<CounterOptionType> = ({maxNumber, setMaxNum
       setNumber(+e.currentTarget.value)
    }
 
-   useEffect(()=> {
+   useEffect(() => {
       localStorage.setItem('counterMaxValue', JSON.stringify(maxNumber))
       localStorage.setItem('counterMinValue', JSON.stringify(minNumber))
       localStorage.setItem('counterValue', JSON.stringify(minNumber))

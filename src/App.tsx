@@ -5,7 +5,7 @@ import {Counter} from "./components/counter/Counter";
 const App = () => {
   return (
       <div className='app'>
-        <Counter></Counter>
+        <Counter/>
       </div>
   );
 }
