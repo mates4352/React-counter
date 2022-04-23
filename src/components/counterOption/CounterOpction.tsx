@@ -1,34 +1,35 @@
 import s from './CounterOption.module.css';
 import React, {ChangeEvent, Dispatch, SetStateAction, useEffect} from "react";
 import {Input} from "../input/Input";
+import {addMaxNumberAT, addMinNumberAT, addNumberAT} from "../../bll/counter-reducer/counter-reduser";
+import {useDispatch, useSelector} from "react-redux";
+import {state} from "../../bll/redux";
 
 type CounterOptionType = {
-   maxNumber: number
-   minNumber: number
-   setNumber: Dispatch<SetStateAction<number>>
-   setMaxNumber: Dispatch<SetStateAction<number>>
-   setMinNumber: Dispatch<SetStateAction<number>>
 }
 
-export const CounterOption: React.FC<CounterOptionType> = (
-    {maxNumber, setMaxNumber, minNumber, setMinNumber, setNumber}
-) => {
+export const CounterOption: React.FC<CounterOptionType> = () => {
+   const dispatch = useDispatch()
+   const maxNumber = useSelector<state, number>(state => state.counter.maxNumber)
+   const minNumber = useSelector<state, number>(state => state.counter.minNumber)
    const errorMaxInput = maxNumber < minNumber
    const errorMinInput = minNumber < 0 || minNumber > maxNumber;
 
    if (errorMaxInput) {
-      setMaxNumber(5)
+      dispatch(addMaxNumberAT(5))
    }
+
    if (errorMinInput) {
-      setMinNumber(0)
+      dispatch(addMinNumberAT(0))
    }
 
    const editMaxNumber = (e: ChangeEvent<HTMLInputElement>) => {
-      setMaxNumber(+e.currentTarget.value)
+      dispatch(addMaxNumberAT(+e.currentTarget.value))
    }
+
    const editMinNumber = (e: ChangeEvent<HTMLInputElement>) => {
-      setMinNumber(+e.currentTarget.value)
-      setNumber(+e.currentTarget.value)
+      dispatch(addMinNumberAT(+e.currentTarget.value))
+      dispatch(addNumberAT(+e.currentTarget.value))
    }
 
    useEffect(() => {
