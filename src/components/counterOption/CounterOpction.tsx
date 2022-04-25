@@ -1,5 +1,5 @@
 import s from './CounterOption.module.css';
-import React, {ChangeEvent, Dispatch, SetStateAction, useEffect} from "react";
+import React, {ChangeEvent} from "react";
 import {Input} from "../input/Input";
 import {addMaxNumberAT, addMinNumberAT, addNumberAT} from "../../bll/counter-reducer/counter-reduser";
 import {useDispatch, useSelector} from "react-redux";
@@ -31,12 +31,6 @@ export const CounterOption: React.FC<CounterOptionType> = () => {
       dispatch(addMinNumberAT(+e.currentTarget.value))
       dispatch(addNumberAT(+e.currentTarget.value))
    }
-
-   useEffect(() => {
-      localStorage.setItem('counterMaxValue', JSON.stringify(maxNumber))
-      localStorage.setItem('counterMinValue', JSON.stringify(minNumber))
-      localStorage.setItem('counterValue', JSON.stringify(minNumber))
-   }, [maxNumber, minNumber])
 
    return (
        <div className={s.CounterOption}>

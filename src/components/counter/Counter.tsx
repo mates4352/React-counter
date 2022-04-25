@@ -1,6 +1,6 @@
 import s from './Counter.module.css'
 import {Button} from "../button/Button";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import {CounterOption} from "../counterOption/CounterOpction";
 import {useDispatch, useSelector} from "react-redux";
 import {
@@ -26,6 +26,7 @@ export const Counter = () => {
       const value = localStorage.getItem("counterValue");
       const valueMax = localStorage.getItem("counterMaxValue");
       const valueMin = localStorage.getItem("counterMinValue");
+
       value && dispatch(addNumberAT(JSON.parse(value)))
       valueMax && dispatch(addMaxNumberAT(JSON.parse(valueMax)))
       valueMin && dispatch(addMinNumberAT(JSON.parse(valueMin)))
@@ -33,8 +34,13 @@ export const Counter = () => {
 
    useEffect(() => {
       localStorage.setItem("counterValue", JSON.stringify(number))
-      console.log('hello')
    }, [number])
+
+   useEffect(() => {
+      localStorage.setItem('counterMaxValue', JSON.stringify(maxNumber))
+      localStorage.setItem('counterMinValue', JSON.stringify(minNumber))
+      localStorage.setItem('counterValue', JSON.stringify(minNumber))
+   }, [maxNumber, minNumber])
 
    const disabledInc = number >= maxNumber;
    const disabledReset = number === minNumber;
