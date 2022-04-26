@@ -3,7 +3,7 @@ import React, {ChangeEvent} from "react";
 import {Input} from "../input/Input";
 import {addMaxNumberAT, addMinNumberAT, addNumberAT} from "../../bll/counter-reducer/counter-reduser";
 import {useDispatch, useSelector} from "react-redux";
-import {state} from "../../bll/redux";
+import {state} from "../../bll/redux-store";
 
 type CounterOptionType = {
 }

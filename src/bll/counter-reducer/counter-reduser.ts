@@ -1,3 +1,6 @@
+import {Dispatch} from "redux";
+
+
 export type counterType = {
    maxNumber: number
    minNumber: number
@@ -8,7 +11,7 @@ type addNumberType = ReturnType<typeof addNumberAT>
 type addMaxNumberType = ReturnType<typeof addMaxNumberAT>
 type addMinNumberType = ReturnType<typeof addMinNumberAT>
 type showrOptionCounterType = ReturnType<typeof showrOptionCounterAT>
-type actionType =
+export type actionType =
       addNumberType
     | addMaxNumberType
     | addMinNumberType
